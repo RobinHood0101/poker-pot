@@ -12,6 +12,7 @@ class Game extends Model
     protected $fillable = [
         'season_id',
         'contribution_rule_id',
+        'title',
         'notes',
         'played_at',
         'status',

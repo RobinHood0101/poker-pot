@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('season_id')->constrained();
             $table->foreignId('contribution_rule_id')->constrained();
+            $table->string('title');
             $table->string('notes')->nullable();
             $table->date('played_at');
             $table->enum('status', GameStatus::cases());
