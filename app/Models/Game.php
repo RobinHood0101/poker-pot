@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Game extends Model
 {
@@ -14,4 +17,31 @@ class Game extends Model
         'status',
         'location',
     ];
+
+    public function season(): BelongsTo
+    {
+        return $this->belongsTo(Season::class);
+    }
+
+    public function contributionRule(): BelongsTo
+    {
+        return $this->belongsTo(ContributionRule::class);
+    }
+
+    public function results(): HasMany
+    {
+        return $this->hasMany(GameResult::class);
+    }
+
+    public function cashTransactions(): HasMany
+    {
+        return $this->hasMany(CashTransaction::class);
+    }
+
+    public function players(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'game_results')
+            ->withPivot('position')
+            ->withTimestamps();
+    }
 }

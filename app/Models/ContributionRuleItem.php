@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ContributionRuleItem extends Model
 {
@@ -11,4 +12,9 @@ class ContributionRuleItem extends Model
         'position',
         'amount',
     ];
+
+    public function contributionRule(): BelongsTo
+    {
+        return $this->belongsTo(ContributionRule::class);
+    }
 }
