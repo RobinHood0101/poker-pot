@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('cash_accounts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->enum('type', CashAccountType::cases());
             $table->timestamps();
         });
