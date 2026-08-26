@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->brandLogo(fn () => view('filament.logo', ['title' => 'Poker-Pot Admin']))
             ->login()
             ->colors([
                 'primary' => Color::Amber,
