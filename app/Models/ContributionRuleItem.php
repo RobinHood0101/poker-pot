@@ -11,6 +11,7 @@ class ContributionRuleItem extends Model
         'contribution_rule_id',
         'position',
         'amount',
+        'description',
     ];
 
     public function contributionRule(): BelongsTo

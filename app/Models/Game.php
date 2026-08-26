@@ -12,6 +12,8 @@ class Game extends Model
     protected $fillable = [
         'season_id',
         'contribution_rule_id',
+        'created_by',
+        'updated_by',
         'title',
         'notes',
         'played_at',
@@ -44,5 +46,15 @@ class Game extends Model
         return $this->belongsToMany(User::class, 'game_results')
             ->withPivot('position')
             ->withTimestamps();
+    }
+
+    public function createdBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function updatedBy(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'updated_by');
     }
 }

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('contribution_rule_id')->constrained();
             $table->integer('position');
             $table->float('amount');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }
