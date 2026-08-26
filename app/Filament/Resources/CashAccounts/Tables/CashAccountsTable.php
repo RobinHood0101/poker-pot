@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\CashAccounts\Tables;
 
+use App\Models\CashAccount;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -18,6 +19,9 @@ class CashAccountsTable
                     ->searchable(),
                 TextColumn::make('type')
                     ->badge(),
+                TextColumn::make('balance')
+                    ->state(fn (CashAccount $record): string => $record->balance())
+                    ->money('CHF'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

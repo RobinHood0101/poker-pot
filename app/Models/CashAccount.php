@@ -16,4 +16,9 @@ class CashAccount extends Model
     {
         return $this->hasMany(CashTransaction::class);
     }
+
+    public function balance(): string
+    {
+        return $this->cashTransactions()->sum('amount');
+    }
 }
