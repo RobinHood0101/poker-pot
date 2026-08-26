@@ -20,6 +20,8 @@ class CashAccountResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Banknotes;
 
+    protected static ?int $navigationSort = 4;
+
     public static function form(Schema $schema): Schema
     {
         return CashAccountForm::configure($schema);
