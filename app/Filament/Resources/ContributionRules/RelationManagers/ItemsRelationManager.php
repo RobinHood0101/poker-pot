@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\ContributionRules\RelationManagers;
 
-use App\Filament\Resources\ContributionRuleItems\Schemas\ContributionRuleItemForm;
 use App\Filament\Resources\ContributionRules\ContributionRuleResource;
 use Filament\Actions\CreateAction;
 use Filament\Forms\Components\TextInput;
@@ -23,10 +22,16 @@ class ItemsRelationManager extends RelationManager
             ->components([
                 TextInput::make('position')
                     ->required()
+                    ->minValue(1)
+                    ->maxValue(100)
                     ->integer(),
                 TextInput::make('amount')
                     ->required()
+                    ->default(0)
+                    ->minValue(0)
+                    ->maxValue(10000)
                     ->numeric(),
+                TextInput::make('description'),
             ]);
     }
 
