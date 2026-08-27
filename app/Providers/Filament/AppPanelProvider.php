@@ -26,6 +26,7 @@ class AppPanelProvider extends PanelProvider
         return $panel
             ->id('app')
             ->path('')
+            ->viteTheme('resources/css/filament/app/theme.css')
             ->spa()
             ->unsavedChangesAlerts()
             ->brandLogo(fn () => view('filament.logo', ['title' => 'Poker-Pot']))
