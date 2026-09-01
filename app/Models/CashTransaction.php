@@ -14,6 +14,7 @@ class CashTransaction extends Model
         'amount',
         'description',
         'type',
+        'status',
     ];
 
     public function cashAccount(): BelongsTo

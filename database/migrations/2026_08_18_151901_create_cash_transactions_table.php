@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\TransactionStatus;
 use App\Enums\TransactionType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->float('amount');
             $table->string('description')->nullable();
             $table->enum('type', TransactionType::cases());
+            $table->enum('status', TransactionStatus::cases());
             $table->timestamps();
         });
     }
